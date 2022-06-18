@@ -1,6 +1,6 @@
 # Astro
-Projet personnel d'Astrologie en reponsive.
-> Api Astro.
+Api Astro.
+> Projet personnel d'Astrologie en responsive.
 
 ## Astro Back-End
 ![NodeJs](https://img.shields.io/badge/NodeJs-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
