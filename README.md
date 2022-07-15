@@ -47,12 +47,6 @@ Pour récuperer le signe selon son identifiant.
 _Remplacer :type par 'chinese' / 'occidental'._\
 _Et :id par l'identifiant du signe._
 
----
-**_Information_**
-
-Le type `occidental` est en cours de rédaction.
-
----
 #### Les années
 Pour récuperer la liste des années du calendrier chinois.
 
