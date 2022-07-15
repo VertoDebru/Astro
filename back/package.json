@@ -1,0 +1,26 @@
+{
+  "name": "astro-back",
+  "version": "1.0.0",
+  "description": "Node server back with MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VertoDebru/Astrology.git"
+  },
+  "author": "Tony Vervoot <t.vervoot@gmail.com> (http://vervoot.alwaysdata.net/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VertoDebru/Astrology/issues"
+  },
+  "homepage": "https://github.com/VertoDebru/Astrology#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.10",
+    "nodemon": "^2.0.15"
+  }
+}
