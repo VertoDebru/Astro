@@ -62,8 +62,32 @@ _Remplacer :id par l'identifiant de l'élément._
 
 ## Astro Front-End
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+### Installation
+Dans le répertoire `front`, créez un fichier `.env` contenant l'url, le port du serveur Node.
+```
+REACT_APP_NODE_HOST=http://127.0.0.1
+REACT_APP_NODE_PORT=8080
+```
+Ouvrez le répertoire `front` dans le terminal, exécutez :
+
+```terminal
+npm install
+```
+Une fois l'installation terminé exécutez l'une des commandes disponibles.
 ### Commandes disponibles
-> À venir...
+Ouvrez le répertoire `front` dans le terminal, exécutez :
+
+```terminal
+npm start
+```
+_Exécute le serveur de l'api en mode développement._
+
+_Ouvrir http://localhost:3000 pour l'afficher dans votre navigateur._
+
+```terminal
+npm run build
+```
+_Génère l'api pour la production dans le répertoire `build`._
 
 ## Aperçu
 > À venir...

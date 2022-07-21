@@ -1,0 +1,18 @@
+.error {
+    margin: 0 auto;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--primary-text-color);
+    background-color: var(--primary-color);
+    border-radius: 0.4em;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 640px) {
+    .error {
+      width: auto;
+      border-radius: 0;
+    }
+}

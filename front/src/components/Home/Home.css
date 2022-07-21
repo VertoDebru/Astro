@@ -1,0 +1,21 @@
+/* MAIN */
+main, section {
+    padding: 10px;
+    height: 300px;
+}
+
+main a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 640px) {
+    section.newYear h2 {
+        font-size: 1.1em;
+        font-weight: 400;
+    }
+    section.newYear p {
+        font-size: 0.9em;
+    }
+}

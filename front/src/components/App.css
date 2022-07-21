@@ -1,0 +1,10 @@
+h1 {
+  margin: 10px;
+  color: var(--primary-text-color);
+  font-weight: 400;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 640px) {
+  
+}

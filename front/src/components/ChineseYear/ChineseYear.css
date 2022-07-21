@@ -1,0 +1,97 @@
+section.newYear {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+section.newYear h2 {
+    margin: 0 auto;
+    z-index: 2;
+}
+
+section.newYear p,
+section.newYear div {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+section.newYear div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 25px;
+}
+
+section.newYear button {
+    padding: 8px;
+    border: none;
+    margin: 10px auto;
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    z-index: 2;
+}
+
+section.newYear div button {
+    margin: 5px;
+}
+
+/* SIGNS */
+section.newYear.rat, section.newYear.buffle, section.newYear.tigre, section.newYear.lapin, section.newYear.dragon, section.newYear.serpent,
+section.newYear.cheval, section.newYear.chevre, section.newYear.singe, section.newYear.coq, section.newYear.chien, section.newYear.cochon {
+    background-repeat: no-repeat;
+    background-position: 100% 110%;
+    z-index: 1;
+}
+section.newYear.rat::before, section.newYear.buffle::before, section.newYear.tigre::before, section.newYear.lapin::before, section.newYear.dragon::before, section.newYear.serpent::before,
+section.newYear.cheval::before, section.newYear.chevre::before, section.newYear.singe::before, section.newYear.coq::before, section.newYear.chien::before, section.newYear.cochon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #b1000090;
+}
+section.newYear.rat {
+    background-image: url(../../assets/signs/chinese/rat.png);
+}
+section.newYear.buffle {
+    background-image: url(../../assets/signs/chinese/buffle.png);
+}
+section.newYear.tigre {
+    background-image: url(../../assets/signs/chinese/tigre.png);
+}
+section.newYear.lapin {
+    background-image: url(../../assets/signs/chinese/lapin.png);
+}
+section.newYear.dragon {
+    background-image: url(../../assets/signs/chinese/dragon.png);
+}
+section.newYear.serpent {
+    background-image: url(../../assets/signs/chinese/serpent.png);
+}
+section.newYear.cheval {
+    background-image: url(../../assets/signs/chinese/cheval.png);
+}
+section.newYear.chevre {
+    background-image: url(../../assets/signs/chinese/chevre.png);
+}
+section.newYear.singe {
+    background-image: url(../../assets/signs/chinese/singe.png);
+}
+section.newYear.coq {
+    background-image: url(../../assets/signs/chinese/coq.png);
+}
+section.newYear.chien {
+    background-image: url(../../assets/signs/chinese/chien.png);
+}
+section.newYear.cochon {
+    background-image: url(../../assets/signs/chinese/cochon.png);
+}
