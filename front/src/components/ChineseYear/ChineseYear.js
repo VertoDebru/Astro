@@ -11,6 +11,7 @@ export default class ChineseYear extends React.Component {
             currentDate: new Date(),
             curChineseYear: null,
             // Current Sign Year
+            curId: null,
             curDescriptionYear: null,
             curSignId: null,
             curSignName: '',
@@ -84,6 +85,7 @@ export default class ChineseYear extends React.Component {
         .then((res) => res.json())
         .then((result) => {
             this.setState({
+                curId: result.signs[this.state.curSignId]._id,
                 curChineseSign: result.signs[this.state.curSignId],
                 curSignName: result.signs[this.state.curSignId].name.toString(),
                 curDescriptionYear: result.signs[this.state.curSignId].year[0].description,
@@ -126,7 +128,7 @@ export default class ChineseYear extends React.Component {
     render() {
         const { isLoading } = this.state;
         const { curSignName, curDescriptionYear } = this.state;
-        const { curSignId, curChineseYear} = this.state;
+        const { curId, curSignId, curChineseYear} = this.state;
         let normalizeSignName = curSignName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
         return(
             <>
@@ -140,7 +142,7 @@ export default class ChineseYear extends React.Component {
                     <button onClick={this.setSign} value='true' className='bx bxs-right-arrow' ></button>
                 </div>
                 <p>{curDescriptionYear}</p>
-                <button id={'Sign'} onClick={this.props.navigateTo}>Plus d'infos ...</button>
+                <button id={'Sign'} value={curId} onClick={this.props.navigateTo}>Plus d'infos ...</button>
                 </>
             )}
             </section>

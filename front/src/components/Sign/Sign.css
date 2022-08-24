@@ -1,0 +1,109 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    height: 93vh;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+main div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 25px;
+}
+main p {
+    overflow: hidden auto;
+    padding: 5px;
+}
+
+/* ScrollBar - Chrome / Edge */
+main p::-webkit-scrollbar {
+    max-width: 5px;
+    max-height: 90%;
+    background-color: rgba(0,0,0,.15);
+    border-radius: 0.2em;
+}
+main p::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 0.2em;
+}
+/* ************************* */
+
+main p, main div {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+main div button {
+    margin: 5px;
+}
+
+main button {
+    padding: 8px;
+    border: none;
+    margin: 10px auto;
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    z-index: 2;
+}
+
+main.rat, main.buffle, main.tigre, main.lapin, main.dragon, main.serpent,
+main.cheval, main.chevre, main.singe, main.coq, main.chien, main.cochon {
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    z-index: 1;
+}
+
+main.rat::before, main.buffle::before, main.tigre::before, main.lapin::before, main.dragon::before, main.serpent::before,
+main.cheval::before, main.chevre::before, main.singe::before, main.coq::before, main.chien::before, main.cochon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #b1000090;
+}
+main.rat {
+    background-image: url(../../assets/signs/chinese/rat.png);
+}
+main.buffle {
+    background-image: url(../../assets/signs/chinese/buffle.png);
+}
+main.tigre {
+    background-image: url(../../assets/signs/chinese/tigre.png);
+}
+main.lapin {
+    background-image: url(../../assets/signs/chinese/lapin.png);
+}
+main.dragon {
+    background-image: url(../../assets/signs/chinese/dragon.png);
+}
+main.serpent {
+    background-image: url(../../assets/signs/chinese/serpent.png);
+}
+main.cheval {
+    background-image: url(../../assets/signs/chinese/cheval.png);
+}
+main.chevre {
+    background-image: url(../../assets/signs/chinese/chevre.png);
+}
+main.singe {
+    background-image: url(../../assets/signs/chinese/singe.png);
+}
+main.coq {
+    background-image: url(../../assets/signs/chinese/coq.png);
+}
+main.chien {
+    background-image: url(../../assets/signs/chinese/chien.png);
+}
+main.cochon {
+    background-image: url(../../assets/signs/chinese/cochon.png);
+}

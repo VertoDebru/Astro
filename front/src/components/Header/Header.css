@@ -1,4 +1,8 @@
 /* HEADER */
+header {
+    height: 7vh;
+}
+
 header nav {
     display: flex;
 }
