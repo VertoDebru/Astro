@@ -1,37 +1,14 @@
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-    height: 93vh;
-    background-color: var(--primary-color);
-    color: var(--primary-text-color);
-}
-
 main div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 25px;
 }
+
 main p {
     overflow: hidden auto;
     padding: 5px;
 }
-
-/* ScrollBar - Chrome / Edge */
-main p::-webkit-scrollbar {
-    max-width: 5px;
-    max-height: 90%;
-    background-color: rgba(0,0,0,.15);
-    border-radius: 0.2em;
-}
-main p::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    border-radius: 0.2em;
-}
-/* ************************* */
 
 main p, main div {
     width: 100%;

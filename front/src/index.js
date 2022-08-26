@@ -13,7 +13,7 @@ root.render(
   <BrowserRouter basename="/">
   <Routes>
     {/* Route by default */}
-    <Route path="/" element={<App currentPage={'Home'} />} />
+    <Route path="/" element={<App />} />
     {/* Unknown Route */}
     <Route path="*" element={
       <main>

@@ -1,0 +1,72 @@
+main ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 600px;
+    list-style-type: none;
+    padding-inline-start: 0;
+    overflow: none;
+}
+
+main ul > li {
+    min-width: 190px;
+    min-height: 100px;
+    text-align: center;
+}
+
+main ul > li button {
+    width: 90%;
+    height: 90%;
+    background-color: var(--primary-color);
+}
+
+main ul > li button.rat, main ul > li button.buffle, main ul > li button.tigre, main ul > li button.lapin, main ul > li button.dragon, main ul > li button.serpent,
+main ul > li button.cheval, main ul > li button.chevre, main ul > li button.singe, main ul > li button.coq, main ul > li button.chien, main ul > li button.cochon {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    z-index: 1;
+}
+main ul > li button.rat {
+    background-image: url(../../assets/signs/chinese/rat.png);
+}
+main ul > li button.buffle {
+    background-image: url(../../assets/signs/chinese/buffle.png);
+}
+main ul > li button.tigre {
+    background-image: url(../../assets/signs/chinese/tigre.png);
+}
+main ul > li button.lapin {
+    background-image: url(../../assets/signs/chinese/lapin.png);
+}
+main ul > li button.dragon {
+    background-image: url(../../assets/signs/chinese/dragon.png);
+}
+main ul > li button.serpent {
+    background-image: url(../../assets/signs/chinese/serpent.png);
+}
+main ul > li button.cheval {
+    background-image: url(../../assets/signs/chinese/cheval.png);
+}
+main ul > li button.chevre {
+    background-image: url(../../assets/signs/chinese/chevre.png);
+}
+main ul > li button.singe {
+    background-image: url(../../assets/signs/chinese/singe.png);
+}
+main ul > li button.coq {
+    background-image: url(../../assets/signs/chinese/coq.png);
+}
+main ul > li button.chien {
+    background-image: url(../../assets/signs/chinese/chien.png);
+}
+main ul > li button.cochon {
+    background-image: url(../../assets/signs/chinese/cochon.png);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 410px) {
+    main ul {
+        overflow: hidden auto;
+    }
+}

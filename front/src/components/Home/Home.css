@@ -4,6 +4,17 @@ main, section {
     height: 300px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    height: 93vh;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
 main a {
     color: var(--primary-text-color);
     text-decoration: none;

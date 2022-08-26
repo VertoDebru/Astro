@@ -5,6 +5,7 @@ import Header from './Header/Header';
 import Home from './Home/Home';
 import Error from './Error/Error';
 import Sign from './Sign/Sign';
+import Signs from './Signs/Signs';
 // Import style.
 import './App.css';
 
@@ -13,8 +14,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       // Navigation
-      currentPage: props.currentPage,
-      currentValue: props.currentValue,
+      currentPage: 'Home',
+      currentValue: props.currentValue || '',
       isOpen: false,
       windowSize: window.innerWidth,
       // ERROR
@@ -35,18 +36,16 @@ export default class App extends React.Component {
 
   // Modification de la page à afficher.
   navigateTo(event) {
+    this.setState({ error: '', isOpen: false });
     let myPage = event.target.id;
-    let myValue = event.target.value;
     if(!myPage) myPage = event.target.parentNode.id;
+
+    let myValue = event.target.value;
     if(!myValue) {
       myValue = event.target.parentNode.value;
       if(!myValue) myValue = '';
     }
-    this.setState({ currentPage: myPage, currentValue: myValue, error: '', isOpen: false });
-    
-    console.log(myPage);
-    //if(myPage !== 'Home' || myPage !== 'Sign') this.setState({ error: 'Erreur de chargement de la page. Réessayer plus tard!' });
-
+    this.setState({ currentPage: myPage, currentValue: myValue });
   }
 
   // Ouvre/Ferme la navigation pour mobile.
@@ -72,6 +71,8 @@ export default class App extends React.Component {
         return (<><Home navigateTo={this.navigateTo} /></>);
       case 'Sign':
         return (<><Sign id={currentValue} navigateTo={this.navigateTo} /></>);
+      case 'Signs':
+        return (<><Signs navigateTo={this.navigateTo} /></>);
       default:
         return (<Error error={error} />);
     }
