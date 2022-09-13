@@ -1,3 +1,47 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  position: relative;
+  padding: 10px;
+  height: 92.5vh;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+}
+
+main a {
+  color: var(--primary-text-color);
+  text-decoration: none;
+}
+
+section {
+  margin: 0 auto;
+  max-width: 600px;
+  max-height: 100%;
+}
+
+section p {
+  max-height: 95%;
+  overflow: hidden auto;
+}
+
+select {
+  border: 0;
+  width: 100px;
+  margin-right: 5px;
+  padding: 5px;
+  font-size: 1.1em;
+  font-weight: 400;
+  background-color: var(--secondary-color);
+  border-radius: 0.3em;
+}
+
 h1 {
   margin: 10px;
   color: var(--primary-text-color);
