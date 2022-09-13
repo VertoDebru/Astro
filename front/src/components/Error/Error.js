@@ -4,7 +4,15 @@ import React from "react";
 import './Error.css';
 
 export default class Error extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: props.error || 'En cours de développement...',
+        }
+    }
+    
     render() {
-        return (<p className="error">{this.props.error}</p>)
+        const { error } = this.state;
+        return (<p className="error">{error}</p>);
     }
 }
