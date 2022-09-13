@@ -1,5 +1,7 @@
 import React from "react";
 
+// Import components.
+import Loader from "../Loader/Loader";
 // Import style.
 import './Signs.css';
 
@@ -42,24 +44,22 @@ export default class Signs extends React.Component {
         const { isLoading } = this.state;
         const { arraySigns } = this.state;
         return (
-            <main>
-                {isLoading ? <p>Loading...</p> : (
-                    <>
-                    <ul>
-                        {arraySigns ? arraySigns.map((sign) => (
-                            <li key={'li'+sign[0]}>
-                                <button 
-                                key={sign[0]}
-                                id={'Sign'}
-                                value={sign[0]}
-                                className={sign[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}
-                                onClick={this.props.navigateTo}>{sign[1]}</button>
-                            </li>
-                        )) : (<p>Erreur de chargement des signes!</p>)}
-                    </ul>
-                    </>
-                )}
-            </main>
+            <>
+            {isLoading ? <Loader /> : (
+                <ul>
+                    {arraySigns ? arraySigns.map((sign) => (
+                        <li key={'li'+sign[0]}>
+                            <button 
+                            key={sign[0]}
+                            id={'Sign'}
+                            value={sign[0]}
+                            className={sign[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}
+                            onClick={this.props.navigateTo}>{sign[1]}</button>
+                        </li>
+                    )) : (<p>Erreur de chargement des signes!</p>)}
+                </ul>
+            )}
+            </>
         );
     }
 }
