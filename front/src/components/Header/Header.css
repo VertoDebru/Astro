@@ -1,10 +1,11 @@
 /* HEADER */
 header {
-    height: 7vh;
+    height: 7.5vh;
 }
 
 header nav {
     display: flex;
+    height: 100%;
 }
 
 header nav ul {
@@ -78,20 +79,40 @@ header nav ul li:nth-last-child(1):hover {
     z-index: 2;
 }
 
+.nav-mobile p {
+    color: transparent;
+    font-size: 0.9em;
+    padding: 15px;
+    animation-name: p-color;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
 .nav-mobile.open {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 0vh;
     position: absolute;
+    top: 50px;
+    animation: develop-menu forwards 0.5s linear;
 }
 
 .nav-mobile.open ul {
-    margin-top: 53px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     width: 100%;
+    opacity: 0;
     list-style-type: none;
     padding-inline-start: 0;
     padding-inline-end: 0;
+    animation-name: view-link;
+    animation-delay: 0.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .nav-mobile.open ul > li {
@@ -99,26 +120,22 @@ header nav ul li:nth-last-child(1):hover {
     padding: 15px;
     margin-bottom: 1px;
     text-align: right;
-    color: var(--primary-text-color);
-    background-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
     cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo i {
-        animation: App-logo-spin infinite 2.5s linear;
-    }
-}
+/* Animations Menu */
+@keyframes p-color { 0% { color: transparent; } 100% { color: black; } }
+@keyframes develop-menu { 0% { height: 0vh; } 95% { height: 90vh; } 100% { height: -webkit-fill-available; } }
+@keyframes view-link { 0% { opacity: 0; } 100% { opacity: 1; } }
+/* --------------- */
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-  
+/* Animation Logo */
+@media (prefers-reduced-motion: no-preference) { .App-logo i { animation: App-logo-spin infinite 2.5s linear; } }
+@keyframes App-logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* -------------- */
+
 /* RESPONSIVE */
 @media screen and (max-width: 640px) {
     /* HEADER */

@@ -7,7 +7,8 @@ export default class Header extends React.Component {
     super(props);
     this.state = {
       isOpen: this.props.isOpen,
-      windowSize: this.props.windowSize
+      windowSize: this.props.windowSize,
+      viewNav: this.props.viewNav
     }
   }
 
@@ -18,7 +19,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { isOpen, windowSize } = this.state;
+    const { isOpen, windowSize, viewNav } = this.state;
     return(
       <>
       {/* Navigation Mobile */}
@@ -28,8 +29,9 @@ export default class Header extends React.Component {
               <li id={'Signs'} onClick={this.props.navigateTo}>Les signes</li>
               <li id={'Elements'} onClick={this.props.navigateTo}>Les éléments</li>
               <li id={'Calculator'} onClick={this.props.navigateTo}>Mon signe</li>
-              <li id={'Contact'} onClick={this.props.navigateTo}>Contact</li>
+              <li id={'Contact'} onClick={this.props.navigateTo}>Compatibilités</li>
           </ul>
+          <p>Créer par Tony Vervoot</p>
         </div>
       ) : (null)}
 
@@ -42,8 +44,8 @@ export default class Header extends React.Component {
               <div id={'Home'} onClick={this.props.navigateTo} className='App-logo'><i className="bx bxs-star"></i><h1>Astro</h1></div>
             </li>
             <li id={'Calculator'} onClick={this.props.navigateTo}>Mon signe</li>
-            <li id={'Contact'} onClick={this.props.navigateTo}>Contact</li>
-            <li onClick={this.props.viewNav}>
+            <li id={'Contact'} onClick={this.props.navigateTo}>Compatibilités</li>
+            <li onClick={viewNav}>
               {isOpen ? <i className="bx bx-x"></i> : <i className="bx bx-menu"></i>}
             </li>
           </ul>
