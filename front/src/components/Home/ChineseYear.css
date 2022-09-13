@@ -1,31 +1,36 @@
 section.newYear {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    position: relative;
-    background-color: var(--primary-color);
-    color: var(--primary-text-color);
 }
 
-section.newYear h2 {
-    margin: 0 auto;
-    z-index: 2;
-}
-
-section.newYear p,
-section.newYear div {
+section.newYear p {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     z-index: 2;
 }
 
-section.newYear div {
+section.newYear div.nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    min-height: 25px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+section.newYear div.nav h2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+section.newYear div.nav h2 span {
+    font-size: 0.6em;
 }
 
 section.newYear button {
@@ -46,18 +51,9 @@ section.newYear div button {
 section.newYear.rat, section.newYear.buffle, section.newYear.tigre, section.newYear.lapin, section.newYear.dragon, section.newYear.serpent,
 section.newYear.cheval, section.newYear.chevre, section.newYear.singe, section.newYear.coq, section.newYear.chien, section.newYear.cochon {
     background-repeat: no-repeat;
-    background-position: 100% 110%;
+    background-position: 85% 0%;
+    background-size: 40px;
     z-index: 1;
-}
-section.newYear.rat::before, section.newYear.buffle::before, section.newYear.tigre::before, section.newYear.lapin::before, section.newYear.dragon::before, section.newYear.serpent::before,
-section.newYear.cheval::before, section.newYear.chevre::before, section.newYear.singe::before, section.newYear.coq::before, section.newYear.chien::before, section.newYear.cochon::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #b1000090;
 }
 section.newYear.rat {
     background-image: url(../../assets/signs/chinese/rat.png);
@@ -94,4 +90,23 @@ section.newYear.chien {
 }
 section.newYear.cochon {
     background-image: url(../../assets/signs/chinese/cochon.png);
+}
+
+section.newYear article {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 0.4em;
+    background-color: white;
+    color: black;
+}
+
+section.newYear article p {
+    padding: 5px;
+}
+
+section.newYear article div {
+    display: flex;
+    align-items: center;
+    padding: 10px 5px;
 }
