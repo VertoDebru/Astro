@@ -1,5 +1,7 @@
 import React from "react";
 
+// Import components.
+import Loader from "../Loader/Loader";
 // Import style.
 import './Sign.css';
 
@@ -32,7 +34,6 @@ export default class Sign extends React.Component {
         fetch(`${this.apiUrl}/chinese/${curSignId}`)
         .then((res) => res.json())
         .then((result) => {
-            console.log(result);
             // Stockage des données.
             this.setState({ 
                 curSignName: result.sign.name,
@@ -57,8 +58,8 @@ export default class Sign extends React.Component {
         let normalizeSignName = curSignName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
         return(
             <>
-            <main className={normalizeSignName}>
-            {isLoading ? <p>Loading...</p> : (
+            <section className={normalizeSignName}>
+            {isLoading ? <Loader /> : (
                 <>
                 <div>
                     <h2>{this.getPrefixForSign(curSignName)}</h2>
@@ -66,7 +67,7 @@ export default class Sign extends React.Component {
                 <p>{curDescription}</p>
                 </>
             )}
-            </main>
+            </section>
             </>
         );
     }
