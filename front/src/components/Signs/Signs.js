@@ -46,6 +46,12 @@ export default class Signs extends React.Component {
         return (
             <>
             {isLoading ? <Loader /> : (
+                <section>
+                <h2>Les signes</h2>
+                <div className="type">
+                    <button disabled>Chinois</button>
+                    <button>Occidentaux</button>
+                </div>
                 <ul>
                     {arraySigns ? arraySigns.map((sign) => (
                         <li key={'li'+sign[0]}>
@@ -54,10 +60,11 @@ export default class Signs extends React.Component {
                             id={'Sign'}
                             value={sign[0]}
                             className={sign[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}
-                            onClick={this.props.navigateTo}>{sign[1]}</button>
+                            onClick={this.props.navigateTo} title={sign[1]} />
                         </li>
                     )) : (<p>Erreur de chargement des signes!</p>)}
                 </ul>
+                </section>
             )}
             </>
         );

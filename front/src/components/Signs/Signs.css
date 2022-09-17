@@ -1,72 +1,103 @@
-main ul {
+.type {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.type button {
+    width: 45%;
+    height: 40px;
+    border: 0;
+    background-color: var(--primary-color-bis);
+    font-size: 1em;
+    color: white;
+    border-bottom: 3px solid #0000005e;
+    cursor: pointer;
+}
+
+.type button:disabled {
+    background-color: white;
+    color: var(--text-color);
+    font-weight: 400;
+    border: 0;
+    cursor: no-drop;
+}
+
+section ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     margin: 0 auto;
     max-width: 600px;
+    height: 75vh;
     list-style-type: none;
     padding-inline-start: 0;
-    overflow: none;
+    background-color: white;
 }
 
-main ul > li {
-    min-width: 190px;
-    min-height: 100px;
-    text-align: center;
+section ul li {
+    margin: 5px;
+    min-width: 90px;
+    min-height: 90px;
+    padding: 5px;
 }
 
-main ul > li button {
-    width: 90%;
-    height: 90%;
-    background-color: var(--primary-color);
+section ul li:nth-child(odd) { background: var(--primary-color); }
+section ul li:nth-child(even) { background: var(--primary-color-bis); }
+
+section ul li button {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
 }
 
-main ul > li button.rat, main ul > li button.buffle, main ul > li button.tigre, main ul > li button.lapin, main ul > li button.dragon, main ul > li button.serpent,
-main ul > li button.cheval, main ul > li button.chevre, main ul > li button.singe, main ul > li button.coq, main ul > li button.chien, main ul > li button.cochon {
+section ul li button.rat, section ul li button.buffle, section ul li button.tigre, section ul li button.lapin, section ul li button.dragon, section ul li button.serpent,
+section ul li button.cheval, section ul li button.chevre, section ul li button.singe, section ul li button.coq, section ul li button.chien, section ul li button.cochon {
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    z-index: 1;
+    background-size: 70px;
 }
-main ul > li button.rat {
+
+section ul li button.rat {
     background-image: url(../../assets/signs/chinese/rat.png);
 }
-main ul > li button.buffle {
+section ul li button.buffle {
     background-image: url(../../assets/signs/chinese/buffle.png);
 }
-main ul > li button.tigre {
+section ul li button.tigre {
     background-image: url(../../assets/signs/chinese/tigre.png);
 }
-main ul > li button.lapin {
+section ul li button.lapin {
     background-image: url(../../assets/signs/chinese/lapin.png);
 }
-main ul > li button.dragon {
+section ul li button.dragon {
     background-image: url(../../assets/signs/chinese/dragon.png);
 }
-main ul > li button.serpent {
+section ul li button.serpent {
     background-image: url(../../assets/signs/chinese/serpent.png);
 }
-main ul > li button.cheval {
+section ul li button.cheval {
     background-image: url(../../assets/signs/chinese/cheval.png);
 }
-main ul > li button.chevre {
+section ul li button.chevre {
     background-image: url(../../assets/signs/chinese/chevre.png);
 }
-main ul > li button.singe {
+section ul li button.singe {
     background-image: url(../../assets/signs/chinese/singe.png);
 }
-main ul > li button.coq {
+section ul li button.coq {
     background-image: url(../../assets/signs/chinese/coq.png);
 }
-main ul > li button.chien {
+section ul li button.chien {
     background-image: url(../../assets/signs/chinese/chien.png);
 }
-main ul > li button.cochon {
+section ul li button.cochon {
     background-image: url(../../assets/signs/chinese/cochon.png);
 }
 
 /* RESPONSIVE */
-@media screen and (max-width: 410px) {
-    main ul {
-        overflow: hidden auto;
-    }
+@media screen and (max-width: 640px) {
+    
 }
