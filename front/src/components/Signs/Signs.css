@@ -51,6 +51,7 @@ section ul li button {
     height: 100%;
     background-color: transparent;
     border: 0;
+    cursor: pointer;
 }
 
 section ul li button.rat, section ul li button.buffle, section ul li button.tigre, section ul li button.lapin, section ul li button.dragon, section ul li button.serpent,
