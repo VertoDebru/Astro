@@ -3,13 +3,6 @@ section.newYear {
     flex-direction: column;
 }
 
-section.newYear p {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    z-index: 2;
-}
-
 section.newYear div.nav {
     display: flex;
     align-items: center;
@@ -100,10 +93,6 @@ section.newYear article {
     border-radius: 0.4em;
     background-color: white;
     color: black;
-}
-
-section.newYear article p {
-    padding: 5px;
 }
 
 section.newYear article div {

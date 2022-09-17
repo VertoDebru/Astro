@@ -1,11 +1,10 @@
-
+section.newYear h2 {
+    font-size: 1.1em;
+    font-weight: 400;
+}
 
 /* RESPONSIVE */
 @media screen and (max-width: 640px) {
-    section.newYear h2 {
-        font-size: 1.1em;
-        font-weight: 400;
-    }
     section.newYear p {
         font-size: 0.9em;
     }
