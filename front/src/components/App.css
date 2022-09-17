@@ -23,7 +23,7 @@ main a {
 section {
   margin: 0 auto;
   max-width: 600px;
-  max-height: 100%;
+  height: 100%;
 }
 
 article {
