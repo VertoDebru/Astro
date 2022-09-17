@@ -26,8 +26,8 @@ section {
   max-height: 100%;
 }
 
-section p {
-  max-height: 95%;
+article {
+  height: 90%;
   overflow: hidden auto;
 }
 

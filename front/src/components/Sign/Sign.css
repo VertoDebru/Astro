@@ -1,56 +1,51 @@
-/*section.rat::before, section.buffle::before, section.tigre::before, section.lapin::before, section.dragon::before, section.serpent::before,
-section.cheval::before, section.chevre::before, section.singe::before, section.coq::before, section.chien::before, section.cochon::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #b1000090;
-    z-index: -1;
-}
-
-section.rat, section.buffle, section.tigre, section.lapin, section.dragon, section.serpent,
-section.cheval, section.chevre, section.singe, section.coq, section.chien, section.cochon {
+div.rat, div.buffle, div.tigre, div.lapin, div.dragon, div.serpent,
+div.cheval, div.chevre, div.singe, div.coq, div.chien, div.cochon {
+    display: flex;
+    align-items: center;
     background-repeat: no-repeat;
     background-position: 100% 100%;
-    z-index: 1;
+    background-size: contain;
+    min-height: 40px;
 }
 
-section.rat {
+div.rat {
     background-image: url(../../assets/signs/chinese/rat.png);
 }
-section.buffle {
+div.buffle {
     background-image: url(../../assets/signs/chinese/buffle.png);
 }
-section.tigre {
+div.tigre {
     background-image: url(../../assets/signs/chinese/tigre.png);
 }
-section.lapin {
+div.lapin {
     background-image: url(../../assets/signs/chinese/lapin.png);
 }
-section.dragon {
+div.dragon {
     background-image: url(../../assets/signs/chinese/dragon.png);
 }
-section.serpent {
+div.serpent {
     background-image: url(../../assets/signs/chinese/serpent.png);
 }
-section.cheval {
+div.cheval {
     background-image: url(../../assets/signs/chinese/cheval.png);
 }
-section.chevre {
+div.chevre {
     background-image: url(../../assets/signs/chinese/chevre.png);
 }
-section.singe {
+div.singe {
     background-image: url(../../assets/signs/chinese/singe.png);
 }
-section.coq {
+div.coq {
     background-image: url(../../assets/signs/chinese/coq.png);
 }
-section.chien {
+div.chien {
     background-image: url(../../assets/signs/chinese/chien.png);
 }
-section.cochon {
+div.cochon {
     background-image: url(../../assets/signs/chinese/cochon.png);
 }
-*/
+
+/* RESPONSIVE */
+@media screen and (max-width: 640px) {
+    
+}

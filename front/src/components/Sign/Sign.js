@@ -58,13 +58,15 @@ export default class Sign extends React.Component {
         let normalizeSignName = curSignName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
         return(
             <>
-            <section className={normalizeSignName}>
+            <section>
             {isLoading ? <Loader /> : (
                 <>
-                <div>
+                <div className={normalizeSignName}>
                     <h2>{this.getPrefixForSign(curSignName)}</h2>
                 </div>
+                <article>
                 <p>{curDescription}</p>
+                </article>
                 </>
             )}
             </section>
