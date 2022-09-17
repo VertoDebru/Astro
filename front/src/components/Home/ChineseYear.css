@@ -96,6 +96,7 @@ section.newYear article {
     display: flex;
     flex-direction: column;
     padding: 5px;
+    height: auto;
     border-radius: 0.4em;
     background-color: white;
     color: black;
