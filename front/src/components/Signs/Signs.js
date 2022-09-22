@@ -11,33 +11,24 @@ export default class Signs extends React.Component {
         this.state = {
             isLoading: false,
             // Signs
-            arraySigns: [],
-            // ERROR
-            error: ''
+            arraySigns: []
         }
-        this.apiUrl = `${process.env.REACT_APP_NODE_HOST}:${process.env.REACT_APP_NODE_PORT}/signs`;
     }
 
     componentDidMount() {
-        this.getSigns();
+        this.setSigns();
     }
 
-    getSigns() {
+    // Insertion des signes dans un tableau. (Only _id & name)
+    setSigns() {
         // Start Loader
         this.setState({isLoading: true});
 
         let listSigns = [];
-        // Get categories infos.
-        fetch(`${this.apiUrl}/chinese`)
-        .then((res) => res.json())
-        .then((result) => {
-            // Stockage des données.
-            result.signs.forEach(sign => {
-                listSigns.push([sign._id.toString(), sign.name.toString()]);
-            });
-            this.setState({ arraySigns: listSigns, isLoading: false });
-        })
-        .catch((err) => this.setState({error: 'Erreur de chargement des données. Réessayer plus tard!'}));
+        Object.entries(this.props.dataSigns).forEach((sign) => {
+            listSigns.push([sign[1]._id, sign[1].name]);
+        });
+        this.setState({ arraySigns: listSigns, isLoading: false });
     }
 
     render() {
@@ -53,16 +44,16 @@ export default class Signs extends React.Component {
                     <button>Occidentaux</button>
                 </div>
                 <ul>
-                    {arraySigns ? arraySigns.map((sign) => (
-                        <li key={'li'+sign[0]}>
-                            <button 
-                            key={sign[0]}
-                            id={'Sign'}
-                            value={sign[0]}
-                            className={sign[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()}
-                            onClick={this.props.navigateTo} title={sign[1]} />
+                    {arraySigns.map((sign,index) => (
+                        <li key={'li'+index}>
+                            <button key={index} 
+                            id={'Sign'} 
+                            value={sign[0]} 
+                            className={sign[1].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()} 
+                            onClick={this.props.navigateTo} 
+                            title={sign.name} />
                         </li>
-                    )) : (<p>Erreur de chargement des signes!</p>)}
+                    ))}
                 </ul>
                 </section>
             )}

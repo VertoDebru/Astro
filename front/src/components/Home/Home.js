@@ -11,25 +11,67 @@ export default class Home extends React.Component {
         super(props);
         this.state = {
             isLoading: false,
-            curChineseYear: props.curSignIdYear,           // Sign ID where current year.
+            // DATAS
+            curChineseYear: null,           // Sign ID by current year. (check)
+            currentDate: new Date(),
             // Current Sign Year
-            curId: null,                    // Id MonogoDB
-            curSignId: null,                // Sign ID
+            curId: null,                    // Id MonogoDB (_id)
+            curSignId: 0,                   // Sign ID (position sign in array list)
             curSignName: '',                // Sign name
             curDescriptionYear: null,       // Sign description
             // Sign in Year
-            arraySignsYear: [],             // List description by sign in current sign ID
-            curSignYear: 0,                 // Sign ID Selected
+            curSignInYear: 0,               // Sign ID Selected
             // ERROR
             error: ''
         }
-        this.apiUrl = `${process.env.REACT_APP_NODE_HOST}:${process.env.REACT_APP_NODE_PORT}/signs`;
         this.setSign = this.setSign.bind(this);
         this.setSignByYear = this.setSignByYear.bind(this);
     }
 
     componentDidMount() {
-        this.getChineseSign();
+        this.getSignByYear(this.props.dataYears, this.state.currentDate);
+    }
+
+    // Récupere le signe chinois actuel selon le nouvel an chinois.
+    getSignByYear(data, date) {
+        // Start Loader
+        this.setState({ isLoading: true });
+        let chineseSign = 0;
+        let tmpSign = 0;
+        let myYear = date.getFullYear();
+        Object.entries(data).forEach(year => {
+            const d = new Date(year[1].year).getDate();
+            const m = new Date(year[1].year).getMonth()+1;
+            const y = new Date(year[1].year).getFullYear();
+            // Si l'année actuelle correspond a la date du nouvel an.
+            if(myYear === y) {
+                // Si le mois actuel est en dessous ou égal à 2
+                if(date.getMonth()+1 <= 2) {
+                    console.log(`Check Day...`);
+                    if(date.getMonth()+1 === m) {
+                        // Si le jour actuel est au dessus ou égal au jour du nouvel an
+                        if(date.getDate() >= d) {
+                            console.log("... day is over the new year.");
+                            tmpSign = chineseSign;
+                            this.setState({ curChineseYear: chineseSign, curSignId: chineseSign }); }
+
+                        console.log("... day is not over the new year.");
+                        chineseSign++;
+                        if(chineseSign > 11) chineseSign = 0;
+                        tmpSign = chineseSign;
+                        this.setState({ curChineseYear: chineseSign, curSignId: chineseSign });
+                    }
+                }
+                // Sinon on renvoi l'id du signe.
+                tmpSign = chineseSign;
+                this.setState({ curChineseYear: chineseSign, curSignId: chineseSign });
+            }
+            // Mise à jour pour le prochain signe.
+            chineseSign++;
+            if(chineseSign > 11) chineseSign = 0;
+        });
+        
+        this.getChineseSign(tmpSign);
     }
 
     // Récupere les données du signe chinois actuel.
@@ -37,28 +79,20 @@ export default class Home extends React.Component {
         // Start Loader
         this.setState({ isLoading: true });
 
-        const { curSignId, arraySignsYear } = this.state;
-        const { curChineseYear } = this.state;
-        let signID = ID || (!curSignId ? curChineseYear : curSignId);
+        const { curSignId, curChineseYear } = this.state;
+        let signID = parseInt(ID) || (!curSignId ? curChineseYear : curSignId);
         if(ID === 0) signID = 0;
 
-        // Get signs infos.
-        fetch(`${this.apiUrl}/chinese`)
-        .then((res) => res.json())
-        .then((result) => {
-            if(arraySignsYear) arraySignsYear.splice(0);
-            result.signs.forEach(sign => {
-                arraySignsYear.push(sign.year[signID+1][signID]); });
-
-            this.setState({
-                curId: result.signs[signID]._id,
-                curSignId: signID,
-                curChineseSign: result.signs[signID],
-                curSignName: result.signs[signID].name.toString(),
-                curDescriptionYear: result.signs[signID].year[0].description });
-        })
-        .catch(() => this.setState({error: 'Erreur de chargement des données. Réessayer plus tard!'}))
-        .finally(() => this.setState({isLoading: false }));
+        Object.entries(this.props.dataSigns).forEach(sign => {
+            if(parseInt(sign[0]) === signID) {
+                this.setState({
+                    curId: sign[1]._id,
+                    curSignId: parseInt(sign[0]),
+                    curSignName: sign[1].name.toString(),
+                    curDescriptionYear: sign[1].year[0].description,
+                    isLoading: false });
+            }
+        });
     }
 
     getPrefixForYear(signName) {
@@ -74,7 +108,7 @@ export default class Home extends React.Component {
     setSign(event) {
         const { curSignId } = this.state;
         let isNext = (event.target.value === 'true' ? true : false);
-        let goToSign = curSignId;
+        let goToSign = parseInt(curSignId);
 
         document.getElementsByTagName('section')[0].className = 'newYear';
 
@@ -88,13 +122,13 @@ export default class Home extends React.Component {
 
     // Change le signe selon le nouvel an chinois actuel.
     setSignByYear(event) {
-        this.setState({ curSignYear: parseInt(event.target.value) });
+        this.setState({ curSignInYear: parseInt(event.target.value) });
     }
 
     render() {
         const { isLoading } = this.state;
-        const { curSignName, curDescriptionYear, arraySignsYear } = this.state;
-        const { curId, curSignId, curChineseYear, curSignYear } = this.state;
+        const { curSignName, curDescriptionYear } = this.state;
+        const { curId, curSignId, curChineseYear, curSignInYear } = this.state;
         let normalizeSignName = curSignName.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
         return(
             <>
@@ -114,7 +148,7 @@ export default class Home extends React.Component {
                 <article>
                     <div>
                     {/* Add in new component. */}
-                    <select value={curSignYear} onChange={this.setSignByYear}>
+                    <select value={curSignInYear} onChange={this.setSignByYear}>
                         <option value={0}>Rat</option>
                         <option value={1}>Buffle</option>
                         <option value={2}>Tigre</option>
@@ -131,7 +165,7 @@ export default class Home extends React.Component {
                     {/* --------------------- */}
                     <h2> dans l'année {this.getPrefixForYear(curSignName)}</h2>
                     </div>
-                    <p>{arraySignsYear[curSignYear]}</p>
+                    <p>{this.props.dataSigns[curSignInYear]?.year[curSignId+1][curSignId]}</p>
                 </article>
                 </section>
             )}

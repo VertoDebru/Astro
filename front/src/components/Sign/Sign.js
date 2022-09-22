@@ -13,11 +13,8 @@ export default class Sign extends React.Component {
             // Current Sign
             curSignId: props.id,
             curSignName: '',
-            curDescription: null,
-            // ERROR
-            error: ''
+            curDescription: null
         }
-        this.apiUrl = `${process.env.REACT_APP_NODE_HOST}:${process.env.REACT_APP_NODE_PORT}/signs`;
     }
 
     componentDidMount() {
@@ -29,18 +26,10 @@ export default class Sign extends React.Component {
         // Start Loader
         this.setState({isLoading: true});
 
-        const { curSignId } = this.state;
-        // Get categories infos.
-        fetch(`${this.apiUrl}/chinese/${curSignId}`)
-        .then((res) => res.json())
-        .then((result) => {
-            // Stockage des données.
-            this.setState({ 
-                curSignName: result.sign.name,
-                curDescription: result.sign.description,
-                isLoading: false });
-        })
-        .catch((err) => this.setState({error: 'Erreur de chargement des données. Réessayer plus tard!'}));
+        Object.entries(this.props.dataSigns).forEach((sign) => {
+            if(sign[1]._id === this.state.curSignId)
+                this.setState({ curSignName: sign[1].name, curDescription: sign[1].description, isLoading: false });
+        });
     }
 
     getPrefixForSign(signName) {
@@ -65,7 +54,7 @@ export default class Sign extends React.Component {
                     <h2>{this.getPrefixForSign(curSignName)}</h2>
                 </div>
                 <article>
-                <p>{curDescription}</p>
+                    <p>{curDescription}</p>
                 </article>
                 </>
             )}
