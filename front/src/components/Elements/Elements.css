@@ -1,0 +1,24 @@
+button.bx.bxs-cube,
+button.bx.bxs-droplet,
+button.bx.bxs-tree,
+button.bx.bxs-hot,
+button.bx.bxs-leaf {
+    font-size: 60px;
+    color: black;
+}
+
+button.bx.bxs-cube {
+    background-color: var(--color-metal);
+}
+button.bx.bxs-droplet {
+    background-color: var(--color-water);
+}
+button.bx.bxs-tree {
+    background-color: var(--color-wood);
+}
+button.bx.bxs-hot {
+    background-color: var(--color-fire);
+}
+button.bx.bxs-leaf {
+    background-color: var(--color-earth);
+}
