@@ -6,6 +6,7 @@ import Home from './Home/Home';
 import Signs from './Signs/Signs';
 import Sign from './Sign/Sign';
 import Elements from './Elements/Elements';
+import Element from './Element/Element';
 
 import Loader from './Loader/Loader';
 import Error from './Error/Error';
@@ -125,6 +126,8 @@ export default class App extends React.Component {
         return (<Sign id={currentValue} dataSigns={dataSigns} navigateTo={this.navigateTo} />);
       case 'Elements':
         return (<Elements dataElements={dataElements} navigateTo={this.navigateTo} />);
+      case 'Element':
+        return (<Element id={currentValue} dataElements={dataElements} navigateTo={this.navigateTo} />);
       default:
         return (<Error error={error} />);
     }

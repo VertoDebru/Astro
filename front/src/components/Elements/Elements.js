@@ -49,6 +49,7 @@ export default class Elements extends React.Component {
                         <li key={'li'+index}>
                             <button 
                             key={index}
+                            id={"Element"}
                             value={element[0]}
                             className={"bx bxs-"+element[2]}
                             onClick={this.props.navigateTo} title={element[1]} />
