@@ -22,6 +22,7 @@ main a {
 
 section {
   margin: 0 auto;
+  width: 100%;
   max-width: 600px;
   height: 100%;
 }
@@ -34,6 +35,12 @@ h1 {
 
 p {
   padding: 5px;
+}
+
+span {
+  padding: 3px;
+  font-size: 0.8em;
+  font-weight: 400;
 }
 
 article {
@@ -50,6 +57,20 @@ select {
   font-weight: 400;
   background-color: var(--secondary-color);
   border-radius: 0.3em;
+}
+
+button {
+  padding: 8px;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  z-index: 2;
+}
+
+button:disabled {
+  background-color: rgba(239, 239, 239, 0.3);
+  cursor: no-drop;
 }
 
 /* RESPONSIVE */

@@ -1,0 +1,56 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 75vh;
+}
+
+select.years,
+select.months,
+select.days {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 0.2em;
+    border: 0;
+}
+
+input {
+    padding: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    border-radius: 0.2em;
+    border: 0;
+}
+
+.nav_calculate {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container_form {
+    display: inline-flex;
+    min-height: 70vh;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+.container_form div {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    max-width: 600px;
+    padding: 5px;
+}
+
+.container_form div:nth-last-child(1) article {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    height: auto;
+    border-radius: 0.4em;
+    background-color: white;
+    color: black;
+}
